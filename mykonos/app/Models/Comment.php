@@ -5,35 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Comment extends Model
 {
   use HasFactory;
 
   protected $fillable = [
-    'title',
-    'text',
-    'image'
+    'text'
   ];
 
   protected $hidden = [
     'created_at',
     'updated_at',
-    'user_id'
+    'user_id',
+    'post_id'
   ];
 
-  public function taxonomies()
+  public function posts()
   {
-    return $this->belongsToMany(Taxonomy::class);
-  }
-
-  public function comments()
-  {
-    return $this->hasMany(Comment::class);
-  }
-
-  public function likes()
-  {
-    return $this->hasMany(Like::class);
+    return $this->belongsTo(Post::class);
   }
 
   public function users()
