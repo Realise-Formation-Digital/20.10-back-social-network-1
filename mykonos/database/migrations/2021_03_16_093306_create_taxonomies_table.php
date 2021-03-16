@@ -16,7 +16,7 @@ class CreateTaxonomiesTable extends Migration
     Schema::create('taxonomies', function (Blueprint $table) {
       $table->id();
       $table->timestamps();
-      $table->string('label', 100);
+      $table->string('label', 50);
     });
   }
 
