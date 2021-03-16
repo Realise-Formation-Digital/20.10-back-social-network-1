@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTaxonomyPostTable extends Migration
+class CreateCommentsTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,14 +13,14 @@ class CreateTaxonomyPostTable extends Migration
    */
   public function up()
   {
-    Schema::create('taxonomy_post', function (Blueprint $table) {
+    Schema::create('comments', function (Blueprint $table) {
       $table->id();
       $table->timestamps();
 
-      $table->unsignedBigInteger('taxonomy_id');
-      $table->foreign('taxonomy_id')
+      $table->unsignedBigInteger('user_id');
+      $table->foreign('user_id')
         ->references('id')
-        ->on('taxonomies')
+        ->on('users')
         ->onDelete('restrict')
         ->onUpdate('restrict');
 
@@ -30,6 +30,8 @@ class CreateTaxonomyPostTable extends Migration
         ->on('posts')
         ->onDelete('restrict')
         ->onUpdate('restrict');
+
+      $table->text('text');
     });
   }
 
@@ -40,6 +42,6 @@ class CreateTaxonomyPostTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('taxonomy_post');
+    Schema::dropIfExists('comments');
   }
 }
