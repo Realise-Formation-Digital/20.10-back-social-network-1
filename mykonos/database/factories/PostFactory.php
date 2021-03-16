@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\user;
+use App\Models\post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserFactory extends Factory
+class PostFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = user::class;
+    protected $model = post::class;
 
     /**
      * Define the model's default state.
