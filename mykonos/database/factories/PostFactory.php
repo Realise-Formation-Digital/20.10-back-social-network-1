@@ -25,7 +25,7 @@ class PostFactory extends Factory
 
       'title' => $this->faker->sentence,
       'text' => $this->faker->text(),
-      'image' => $this->faker->image(public_path() . '/assets/img'),
+      'image' => $this->faker->image('public/assets/img'),
 
     ];
   }
