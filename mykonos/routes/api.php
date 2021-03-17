@@ -24,3 +24,8 @@ Route::apiResource('comments', CommentController::class);
 Route::apiResource('likes', LikeController::class);
 Route::apiResource('posts', PostController::class);
 Route::apiResource('taxonomies', TaxonomyController::class);
+Route::post('/tokens/create', function (Request $request) {
+  $token = $request->user()->createToken($request->token_name);
+
+  return ['token' => $token->plainTextToken];
+});

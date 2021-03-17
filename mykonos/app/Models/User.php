@@ -2,13 +2,18 @@
 
 namespace App\Models;
 
+use App\Models\Like;
+use App\Models\Post;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 use Egulias\EmailValidator\Warning\Comment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authenticatable
 {
-  use HasFactory;
+  use HasFactory, HasApiTokens, Notifiable;
 
   protected $fillable = [
     'created_at',
