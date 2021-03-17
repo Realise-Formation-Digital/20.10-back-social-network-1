@@ -9,15 +9,19 @@ export default {
     routes: [
         {
             path: "/",
+            name:'Home',
             component: Home,
         },
         {
             path: "/post",
+            name:'post',
             component: Post,
         },
         {
             path: "/header",
+            name:'Header',
          component: Header,
         },
+       
     ],
 }
