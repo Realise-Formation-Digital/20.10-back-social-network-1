@@ -9,6 +9,8 @@ use App\Models\Comment;
 use App\Models\Taxonomy;
 use Illuminate\Database\Seeder;
 
+use Illuminate\Filesystem\Filesystem;
+
 class DatabaseSeeder extends Seeder
 {
   /**
@@ -18,6 +20,9 @@ class DatabaseSeeder extends Seeder
    */
   public function run()
   {
+
+    $file = new Filesystem;
+    $file->cleanDirectory('public/assets/img');
 
     $users = User::factory(10)->create();
 

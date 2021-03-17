@@ -26,7 +26,7 @@ class UserFactory extends Factory
       'name' => $this->faker->lastName(),
       'firstname' => $this->faker->firstName(),
       'password' => $this->faker->sha256,
-      'avatar' => $this->faker->image(public_path() . '/assets/img'),
+      'avatar' => $this->faker->image('public/assets/img'),
       'address' => $this->faker->address,
       'phone' => $this->faker->phoneNumber,
       'birth_date' => $this->faker->dateTime()->format('d/m/Y')
