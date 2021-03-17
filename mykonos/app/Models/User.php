@@ -11,6 +11,7 @@ class User extends Model
   use HasFactory;
 
   protected $fillable = [
+    'created_at',
     'email',
     'name',
     'firstname',
@@ -22,7 +23,6 @@ class User extends Model
   ];
 
   protected $hidden = [
-    'created_at',
     'updated_at',
   ];
 
