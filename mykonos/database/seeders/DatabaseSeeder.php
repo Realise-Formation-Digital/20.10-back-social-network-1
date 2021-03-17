@@ -46,10 +46,6 @@ class DatabaseSeeder extends Seeder
         $comment->save();
       });
 
-
-
-
-
     Like::factory(10)->make()
       ->each(function ($like) use ($posts, $users) {
         $like->post_id = $posts->random()->id;

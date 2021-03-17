@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\TaxonomyController;
+use App\Http\Controllers\UserController as UserAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,15 @@ use App\Http\Controllers\Api\TaxonomyController;
 |
 */
 
-Route::apiResource('users', UserController::class);
-Route::apiResource('comments', CommentController::class);
-Route::apiResource('likes', LikeController::class);
-Route::apiResource('posts', PostController::class);
-Route::apiResource('taxonomies', TaxonomyController::class);
+
+
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+  Route::apiResource('users', UserController::class);
+  Route::apiResource('comments', CommentController::class);
+  Route::apiResource('likes', LikeController::class);
+  Route::apiResource('posts', PostController::class);
+  Route::apiResource('taxonomies', TaxonomyController::class);
+});
+
+Route::post("login", [UserAuthController::class, 'index']);
