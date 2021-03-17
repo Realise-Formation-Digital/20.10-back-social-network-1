@@ -2,11 +2,13 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Comment;
-use App\Http\Controllers\Api\Like;
-use App\Http\Controllers\Api\Post;
-use App\Http\Controllers\Api\Taxonomy;
-use App\Http\Controllers\Api\User;
+use App\Http\Controllers\Api\LikeController;
+use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\CommentController;
+use App\Http\Controllers\Api\TaxonomyController;
+use App\Http\Controllers\UserController as UserAuthController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,12 +20,15 @@ use App\Http\Controllers\Api\User;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+  Route::apiResource('users', UserController::class);
+  Route::apiResource('comments', CommentController::class);
+  Route::apiResource('likes', LikeController::class);
+  Route::apiResource('posts', PostController::class);
+  Route::apiResource('taxonomies', TaxonomyController::class);
 });
 
-Route::apiResource('comments', CommentController::class);
-Route::apiResource('likes', LikeController::class);
-Route::apiResource('posts', PostController::class);
-Route::apiResource('taxonomies', TaxonomyController::class);
-Route::apiResource('users', UserController::class);
+Route::post("login", [UserAuthController::class, 'index']);
