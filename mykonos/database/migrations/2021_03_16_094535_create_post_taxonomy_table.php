@@ -15,7 +15,6 @@ class CreatePostTaxonomyTable extends Migration
   {
     Schema::create('post_taxonomy', function (Blueprint $table) {
       $table->id();
-      $table->timestamps();
 
       $table->unsignedBigInteger('taxonomy_id');
       $table->foreign('taxonomy_id')
