@@ -2,6 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Like;
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Comment;
+use App\Models\Taxonomy;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,22 +19,22 @@ class DatabaseSeeder extends Seeder
   public function run()
   {
 
-    $users = \App\Models\User::factory(10)->create();
+    $users = User::factory(10)->create();
 
 
-    $posts = \App\Models\Post::factory(10)->make()
+    $posts = Post::factory(10)->make()
       ->each(function ($post) use ($users) {
         $post->user_id = $users->random()->id;
         $post->save();
       });
 
-    $taxonomies = \App\Models\Taxonomy::factory(10)->create()
+    Taxonomy::factory(10)->create()
 
       ->each(function ($taxonomy) use ($posts) {
         $taxonomy->posts()->attach([$posts->random()->id]);
       });
 
-    $comments = \App\Models\Comment::factory(10)->make()
+    Comment::factory(10)->make()
       ->each(function ($comment) use ($posts, $users) {
         $comment->post_id = $posts->random()->id;
         $comment->user_id = $users->random()->id;
@@ -40,7 +45,7 @@ class DatabaseSeeder extends Seeder
 
 
 
-    $likes = \App\Models\Like::factory(10)->make()
+    Like::factory(10)->make()
       ->each(function ($like) use ($posts, $users) {
         $like->post_id = $posts->random()->id;
         $like->user_id = $users->random()->id;
