@@ -2,10 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Comment;
-use App\Models\Like;
-use App\Models\Post;
-use App\Models\Taxonomy;
+use App\Http\Controllers\Api\Comment;
+use App\Http\Controllers\Api\Like;
+use App\Http\Controllers\Api\Post;
+use App\Http\Controllers\Api\Taxonomy;
+use App\Http\Controllers\Api\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('comments', CommentController::class);
-Route::apiResource('Likes', LikeController::class);
-Route::apiResource('Posts', PostController::class);
-Route::apiResource('Taxonomies', TaxonomyController::class);
+Route::apiResource('likes', LikeController::class);
+Route::apiResource('posts', PostController::class);
+Route::apiResource('taxonomies', TaxonomyController::class);
+Route::apiResource('users', UserController::class);
