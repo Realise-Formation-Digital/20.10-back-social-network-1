@@ -22,11 +22,11 @@ class PostFactory extends Factory
   public function definition()
   {
     return [
-      
+
       'title' => $this->faker->sentence,
       'text' => $this->faker->text(),
       'image' => $this->faker->image(public_path() . '/assets/img'),
-      
+
     ];
   }
 }
