@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTaxonomyPostTable extends Migration
+class CreatePostTaxonomyTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,9 +13,8 @@ class CreateTaxonomyPostTable extends Migration
    */
   public function up()
   {
-    Schema::create('taxonomy_post', function (Blueprint $table) {
+    Schema::create('post_taxonomy', function (Blueprint $table) {
       $table->id();
-      $table->timestamps();
 
       $table->unsignedBigInteger('taxonomy_id');
       $table->foreign('taxonomy_id')
@@ -40,6 +39,6 @@ class CreateTaxonomyPostTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('taxonomy_post');
+    Schema::dropIfExists('post_taxonomy');
   }
 }

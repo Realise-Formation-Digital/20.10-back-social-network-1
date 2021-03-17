@@ -10,12 +10,12 @@ class Comment extends Model
   use HasFactory;
 
   protected $fillable = [
+    'created_at',
+    'updated_at',
     'text'
   ];
 
   protected $hidden = [
-    'created_at',
-    'updated_at',
     'user_id',
     'post_id'
   ];

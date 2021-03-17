@@ -10,14 +10,14 @@ class Post extends Model
   use HasFactory;
 
   protected $fillable = [
+    'created_at',
+    'updated_at',
     'title',
     'text',
     'image'
   ];
 
   protected $hidden = [
-    'created_at',
-    'updated_at',
     'user_id'
   ];
 
