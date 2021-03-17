@@ -22,7 +22,9 @@ class LikeFactory extends Factory
     public function definition()
     {
         return [
-            //
+        
+        'is_dislike' => $this->faker->boolean,
+   
         ];
     }
 }
