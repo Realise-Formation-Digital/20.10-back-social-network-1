@@ -9,6 +9,8 @@ use App\Models\Comment;
 use App\Models\Taxonomy;
 use Illuminate\Database\Seeder;
 
+use Illuminate\Filesystem\Filesystem;
+
 class DatabaseSeeder extends Seeder
 {
   /**
@@ -18,6 +20,9 @@ class DatabaseSeeder extends Seeder
    */
   public function run()
   {
+
+    $file = new Filesystem;
+    $file->cleanDirectory('public/assets/img');
 
     $users = User::factory(10)->create();
 
@@ -40,10 +45,6 @@ class DatabaseSeeder extends Seeder
         $comment->user_id = $users->random()->id;
         $comment->save();
       });
-
-
-
-
 
     Like::factory(10)->make()
       ->each(function ($like) use ($posts, $users) {
