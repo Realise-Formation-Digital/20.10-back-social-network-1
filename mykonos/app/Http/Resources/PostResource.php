@@ -25,7 +25,7 @@ class PostResource extends JsonResource
       'user_id' => $this->user_id,
       'taxonomies' => $this->taxonomies,
       'comments' => CommentResource::collection($this->comments),
-      'likes' => $this->likes,
+      'likes' => LikeResource::collection($this->likes),
     ];
     return parent::toArray($request);
   }
