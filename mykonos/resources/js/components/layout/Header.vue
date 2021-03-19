@@ -1,34 +1,28 @@
 <template>
-<v-app>
-    <v-toolbar>
-       <v-app-bar dense color red>
-           <template v-slot:extension>
+       <v-app-bar color="red">
               <v-icon> Logo </v-icon>
               <v-tabs>
                 <v-tab>
                 <v-icon left>mdi-home</v-icon>
                 Home</v-tab>
 
-                <v-tab>Mes publications</v-tab>
-                <v-icon>mdi-add_circle</v-icon>
-                <v-tab>Ajouter une publication</v-tab>
+                <v-tab>
+                <v-icon left>mdi-book-account</v-icon>Mes publications</v-tab>
+                <v-tab>
+                <v-icon left>mdi-book-plus</v-icon>Ajouter une publication</v-tab>
 
                 <v-tab>
-                <v-icon>mdi-thumb_up_alt</v-icon>
+                <v-icon left>mdi-thumb-up</v-icon>
                 Mes like</v-tab>
 
                 <v-tab>
-                  <v-icon>mdi-account_circle</v-icon>
+                  <v-icon left>mdi-account-circle</v-icon>
                   Mon compte</v-tab>
                 <v-tab>
-                <v-icon>mdi-settings</v-icon>
+                <v-icon left>mdi-tools</v-icon>
                 Settings</v-tab>
               </v-tabs>
-           </template>
           </v-app-bar>
-      </v-toolbar>
-  </v-app>
-
 </template>
 
 <script>
@@ -46,7 +40,4 @@ export default {
     text-transform: none !important ;
 };
 
-.v-app-bar {
-    color:green;
-};
 </style>
