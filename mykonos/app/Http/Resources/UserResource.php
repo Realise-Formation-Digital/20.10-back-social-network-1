@@ -15,13 +15,15 @@ class UserResource extends JsonResource
    */
   public function toArray($request)
   {
+    $address = $this->address;
     return [
       'id' => $this->id,
       'name' => $this->name,
       'firstname' => $this->firstname,
       'email' => $this->email,
+      'password' => $this->password,
       'avatar' => Str::of($this->avatar)->after('public/assets/img\\'),
-      'address' => $this->address,
+      'address' => Str::replaceFirst("\n", ' ', $address),
       'phone' => $this->phone,
       'birth_date' => $this->birth_date,
       'created_at' => $this->created_at->format('Y-m-d H:i:s'),
