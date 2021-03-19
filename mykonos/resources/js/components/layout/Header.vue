@@ -1,7 +1,10 @@
 <template>
-       <v-app-bar color="red">
+       <v-app-bar max-height="64"
+  color="indigo lighten-3"
+  dark
+      >
               <v-icon> Logo </v-icon>
-              <v-tabs>
+              <v-tabs active color="indigo darken-2">
                 <v-tab>
                 <v-icon left>mdi-home</v-icon>
                 Home</v-tab>

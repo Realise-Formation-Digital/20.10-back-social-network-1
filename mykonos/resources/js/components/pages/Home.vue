@@ -1,9 +1,7 @@
-<template>
-<div>
+<template><v-app>
 <Header/>
-
-<Footer/>
-</div>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est qui reprehenderit magnam sit ducimus dolorem molestiae nulla quasi. Sint quo labore porro atque accusantium nam at ea modi distinctio commodi.</p>
+<Footer/></v-app>
 </template>
 
 <style>
