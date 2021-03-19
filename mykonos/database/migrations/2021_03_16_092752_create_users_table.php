@@ -26,14 +26,7 @@ class CreateUsersTable extends Migration
       $table->string('address', 255)->nullable();
       $table->string('phone', 50)->nullable();
       $table->string('birth_date', 50)->nullable();
-    });/* 
-
-    Schema::table('users', function ($table) {
-      $table->string('api_token', 80)->after('password')
-        ->unique()
-        ->nullable()
-        ->default(null);
-    }); */
+    });
   }
 
   /**
