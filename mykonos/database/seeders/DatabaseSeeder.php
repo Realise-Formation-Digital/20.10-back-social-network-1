@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
    */
   public function run()
   {
-
+    $this->call(UsersTableSeeder::class);
     $file = new Filesystem;
     $file->cleanDirectory('public/assets/img');
 
-    $users = User::factory(10)->create();
+    $users = User::factory(9)->create();
 
 
     $posts = Post::factory(10)->make()
