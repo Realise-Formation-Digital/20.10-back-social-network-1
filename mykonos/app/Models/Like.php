@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Like extends Model
 {
@@ -14,10 +16,12 @@ class Like extends Model
   ];
 
   protected $hidden = [
+    'id',
     'created_at',
     'updated_at',
     'user_id',
-    'post_id'
+    'post_id',
+    'pivot'
   ];
 
   public function posts()

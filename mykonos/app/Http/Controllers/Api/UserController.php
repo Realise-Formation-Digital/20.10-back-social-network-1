@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
@@ -15,7 +16,7 @@ class UserController extends Controller
    */
   public function index()
   {
-    return User::all();
+    return UserResource::collection(User::all());
   }
 
   /**
@@ -34,9 +35,9 @@ class UserController extends Controller
    * @param  \App\User $user
    * @return \Illuminate\Http\Response
    */
-  public function show(User $user)
+  public function show($user)
   {
-    return $user;
+    return new UserResource(User::findOrFail($user));
   }
   /**
    * Update the specified resource in storage.

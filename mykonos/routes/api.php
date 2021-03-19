@@ -24,19 +24,11 @@ use App\Http\Controllers\UserController as UserAuthController;
 
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
-  Route::get('post/{id}', [PostController::class, 'show']);
 });
 
-
-
-Route::apiResource('comments', CommentController::class);
-Route::apiResource('likes', LikeController::class);
-Route::apiResource('taxonomies', TaxonomyController::class);
-Route::apiResource('users', UserController::class);
-
-Route::get('posts', [PostController::class, 'index']);
-
-
-
+Route::apiResource('users', UserController::class)->only(['index', 'show']);
+Route::apiResource('posts', PostController::class)->only(['index', 'show']);
+Route::apiResource('taxonomies', TaxonomyController::class)->only(['index', 'show']);
+Route::apiResource('comments', CommentController::class)->only(['index', 'show']);
 
 Route::post("login", [UserAuthController::class, 'index']);

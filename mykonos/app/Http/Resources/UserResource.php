@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Support\Str;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostResource extends JsonResource
+class UserResource extends JsonResource
 {
   /**
    * Transform the resource into an array.
@@ -15,17 +15,20 @@ class PostResource extends JsonResource
    */
   public function toArray($request)
   {
+    $address = $this->address;
     return [
       'id' => $this->id,
-      'title' => $this->title,
-      'text' => $this->text,
-      'image' => Str::of($this->image)->after('public/assets/img\\'),
+      'name' => $this->name,
+      'firstname' => $this->firstname,
+      'email' => $this->email,
+      'password' => $this->password,
+      'avatar' => Str::of($this->avatar)->after('public/assets/img\\'),
+      'address' => Str::replaceFirst("\n", ' ', $address),
+      'phone' => $this->phone,
+      'birth_date' => $this->birth_date,
       'created_at' => $this->created_at->format('Y-m-d H:i:s'),
       'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
-      'user_id' => $this->user_id,
-      'taxonomies' => $this->taxonomies,
-      'comments' => CommentResource::collection($this->comments),
-      'likes' => $this->likes,
+      'posts' => PostResource::collection($this->posts)
     ];
     return parent::toArray($request);
   }

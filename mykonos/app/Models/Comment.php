@@ -2,22 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Comment extends Model
 {
   use HasFactory;
 
   protected $fillable = [
+    'text',
     'created_at',
     'updated_at',
-    'text'
+    'user_id',
+    'post_id',
   ];
 
   protected $hidden = [
-    'user_id',
-    'post_id'
+    'pivot'
   ];
 
   public function posts()
