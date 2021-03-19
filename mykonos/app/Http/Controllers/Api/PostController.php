@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PostResource;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -15,7 +16,7 @@ class PostController extends Controller
    */
   public function index()
   {
-    return Post::all();
+    return PostResource::collection(Post::all());
   }
   /**
    * Store a newly created resource in storage.
@@ -33,9 +34,9 @@ class PostController extends Controller
    * @param  \App\Post $post
    * @return \Illuminate\Http\Response
    */
-  public function show(Post $post)
+  public function show($post)
   {
-    return $post;
+    return new PostResource(Post::findOrFail($post));
   }
   /**
    * Update the specified resource in storage.

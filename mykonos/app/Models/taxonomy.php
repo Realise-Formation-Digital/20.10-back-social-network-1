@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Taxonomy extends Model
 {
@@ -16,6 +17,7 @@ class Taxonomy extends Model
   protected $hidden = [
     'created_at',
     'updated_at',
+    'pivot'
   ];
 
   public function posts()
