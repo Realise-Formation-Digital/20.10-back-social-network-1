@@ -6,7 +6,7 @@
               <v-icon> Logo </v-icon>
               <v-tabs>
                 <v-tab>
-                <v-icon>mdi-home</v-icon>
+                <v-icon left>mdi-home</v-icon>
                 Home</v-tab>
 
                 <v-tab>Mes publications</v-tab>
@@ -32,24 +32,11 @@
 </template>
 
 <script>
-
 export default {
   name:  "Home",
-
 }
 </script>
-
-<style>
-
-</style>
-
-
-<script>
-export default {
-  name:  "Header",
-}
-</script>
-
+  
 <style>
 .v-tabs-bar {
     float:right !important;

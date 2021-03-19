@@ -1,7 +1,10 @@
-import Home from "./components/Home.vue";
-import Post from "./components/Post.vue";
-import Footer from "./components/Footer.vue";
-import Header from "./components/Header.vue";
+import Home from "./components/pages/Home.vue";
+import Like from "./components/pages/Like.vue";
+import Login from "./components/pages/Login.vue";
+import Post from "./components/pages/Post.vue";
+import Register from "./components/pages/Register.vue";
+import Settings from "./components/pages/Settings.vue";
+import Taxonomy from "./components/pages/Taxonomy.vue";
 import VueRouter from "vue-router";
 
 export default {
@@ -13,21 +16,42 @@ export default {
             name:'Home',
             component: Home,
         },
+
+        {
+            path: "/like",
+            name:'Like',
+         component: Like,
+        },
+
+        {
+            path: "/login",
+            name:'Login',
+         component: Login,
+        },
+      
         {
             path: "/post",
             name:'post',
             component: Post,
         },
         {
-            path: "/header",
-            name:'Header',
-         component: Header,
+            path: "/register",
+            name:'Register',
+         component: Register,
         },
+    
         {
-            path: "/footer",
-            name:'Footer',
-         component: Footer,
+            path: "/settings",
+            name:'Settings',
+         component: Settings,
         },
-       
+
+        {
+            path: "/taxonomy",
+            name:'Taxonomy',
+         component: Taxonomy,
+        },
+      
+     
     ],
 }
