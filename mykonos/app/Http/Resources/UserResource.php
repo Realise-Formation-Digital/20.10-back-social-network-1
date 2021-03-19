@@ -28,7 +28,8 @@ class UserResource extends JsonResource
       'birth_date' => $this->birth_date,
       'created_at' => $this->created_at->format('Y-m-d H:i:s'),
       'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
-      'posts' => PostResource::collection($this->posts)
+      'posts' => PostResource::collection($this->posts),
+      'comments' => CommentResource::collection($this->comments),
     ];
     return parent::toArray($request);
   }
