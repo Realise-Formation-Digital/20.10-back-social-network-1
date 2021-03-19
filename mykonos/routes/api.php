@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\TaxonomyController;
-use App\Http\Controllers\UserController as UserAuthController;
+use App\Http\Controllers\Api\UserAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +32,5 @@ Route::apiResource('taxonomies', TaxonomyController::class);
 Route::apiResource('comments', CommentController::class);
 Route::apiResource('likes', LikeController::class);
 
-Route::post("login", [UserAuthController::class, 'index']);
+Route::post("login", [UserAuthController::class, 'login']);
+Route::get("login", [UserAuthController::class, 'index']);

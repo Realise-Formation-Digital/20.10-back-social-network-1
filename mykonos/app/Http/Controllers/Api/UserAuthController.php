@@ -1,20 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class UserAuthController extends Controller
 {
 
-  function index(Request $request)
+  function index()
+  {
+    $response = [
+      'error' => 'Access Denied'
+    ];
+
+    return response($response, 403);
+  }
+
+  function login(Request $request)
   {
     $user = User::where('email', $request->email)->first();
     if (!$user || !Hash::check($request->password, $user->password)) {
       return response([
-        'message' => ['These credentials do not match our records.']
+        'error' => ['These credentials do not match our records.']
       ], 404);
     }
 
