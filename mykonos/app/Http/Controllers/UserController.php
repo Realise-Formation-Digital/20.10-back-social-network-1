@@ -9,7 +9,16 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
-  function index(Request $request)
+  function index()
+  {
+    $response = [
+      'Error' => 'Access Denied'
+    ];
+
+    return response($response, 403);
+  }
+
+  function login(Request $request)
   {
     $user = User::where('email', $request->email)->first();
     if (!$user || !Hash::check($request->password, $user->password)) {

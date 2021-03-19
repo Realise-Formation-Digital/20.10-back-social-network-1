@@ -32,4 +32,5 @@ Route::apiResource('taxonomies', TaxonomyController::class);
 Route::apiResource('comments', CommentController::class);
 Route::apiResource('likes', LikeController::class);
 
-Route::post("login", [UserAuthController::class, 'index']);
+Route::post("login", [UserAuthController::class, 'login']);
+Route::get("login", [UserAuthController::class, 'index']);
