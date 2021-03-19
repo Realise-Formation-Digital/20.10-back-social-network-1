@@ -10,6 +10,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@mdi/js": "^5.9.55",
         "axios": "^0.21",
         "cross-env": "^7.0.3",
         "jquery": "^3.6.0",
@@ -26,5 +27,8 @@
         "vue-template-compiler": "^2.6.12",
         "vuetify": "^2.4.6",
         "vuetifyjs-mix-extension": "^0.0.20"
+    },
+    "dependencies": {
+        "vue-material-design-icons": "^4.11.0"
     }
 }
