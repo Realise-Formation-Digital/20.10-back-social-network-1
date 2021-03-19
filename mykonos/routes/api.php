@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\TaxonomyController;
-use App\Http\Controllers\UserController as UserAuthController;
+use App\Http\Controllers\Api\UserAuthController;
 
 /*
 |--------------------------------------------------------------------------
