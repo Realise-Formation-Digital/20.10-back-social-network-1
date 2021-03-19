@@ -13,7 +13,7 @@ class UserAuthController extends Controller
   function index()
   {
     $response = [
-      'Error' => 'Access Denied'
+      'error' => 'Access Denied'
     ];
 
     return response($response, 403);
@@ -24,7 +24,7 @@ class UserAuthController extends Controller
     $user = User::where('email', $request->email)->first();
     if (!$user || !Hash::check($request->password, $user->password)) {
       return response([
-        'message' => ['These credentials do not match our records.']
+        'error' => ['These credentials do not match our records.']
       ], 404);
     }
 
