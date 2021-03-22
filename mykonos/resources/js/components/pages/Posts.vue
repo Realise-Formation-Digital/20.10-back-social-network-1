@@ -2,7 +2,7 @@
   <div :class="{ loading: loading }">
     <v-row dense>
       <v-col
-        v-for="post in posts"
+        v-for="post in orderedList"
         :key="post.id"
         cols="12"
         sm="6"
@@ -12,7 +12,7 @@
       >
         <v-card>
           <v-img
-            :src="'assets/img/' + post.image"
+            :src="post.image | subStr(7)"
             class="white--text align-end"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="200px"
@@ -66,6 +66,18 @@
                   <v-icon class="mr-2" dark small> mdi-heart </v-icon
                   >{{ post.likes.length }}
                 </v-chip>
+                <v-chip
+                  class="mr-1"
+                  elevation="0"
+                  fab
+                  pill
+                  dark
+                  small
+                  color="brown"
+                >
+                  <v-icon class="mr-2" dark small> mdi-heart-broken </v-icon
+                  >{{ post.likes.length }}
+                </v-chip>
               </v-col>
             </v-row>
           </div>
@@ -105,9 +117,21 @@ export default {
   },
   mounted() {
     axios.get("/api/posts").then((response) => {
-      this.posts = response.data.data;
+      this.posts = response.data.map((r) => {
+        r.taxonomies = _.orderBy(r.taxonomies, "label");
+        r.likes = r.likes.filter(
+          (item) => item.is_dislike == 0
+        ); /* 
+        r.likes = r.likes.filter((item) => item.is_dislike == 1); */
+        return r;
+      });
       this.loading = false;
     });
+  },
+  computed: {
+    orderedList: function () {
+      return _.orderBy(this.posts, "created_at", "desc");
+    },
   },
 };
 </script>
