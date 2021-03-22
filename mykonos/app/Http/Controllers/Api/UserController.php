@@ -16,7 +16,8 @@ class UserController extends Controller
    */
   public function index()
   {
-    return UserResource::collection(User::all());
+    return User::with('posts')->with('comments')->with('likes')->get();
+
   }
 
   /**
@@ -37,7 +38,7 @@ class UserController extends Controller
    */
   public function show($user)
   {
-    return new UserResource(User::findOrFail($user));
+    return User::with('posts')->with('comments')->with('likes')->findOrFail($post);
   }
   /**
    * Update the specified resource in storage.
