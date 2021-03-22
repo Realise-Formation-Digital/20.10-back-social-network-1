@@ -16,7 +16,7 @@ class PostController extends Controller
    */
   public function index()
   {
-    return PostResource::collection(Post::all());
+    return Post::with('user')->with('taxonomies')->with('comments')->with('likes')->get();
   }
   /**
    * Store a newly created resource in storage.
@@ -36,7 +36,7 @@ class PostController extends Controller
    */
   public function show($post)
   {
-    return new PostResource(Post::findOrFail($post));
+    return Post::with('user')->with('taxonomies')->with('comments')->with('likes')->findOrFail($post);
   }
   /**
    * Update the specified resource in storage.

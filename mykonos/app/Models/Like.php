@@ -13,11 +13,11 @@ class Like extends Model
 
   protected $fillable = [
     'is_dislike',
+    'created_at',
+    'updated_at',
   ];
 
   protected $hidden = [
-    'created_at',
-    'updated_at',
     'user_id',
     'post_id',
     'pivot'
