@@ -94,7 +94,7 @@ export default {
   },
   mounted() {
     axios.get("/api/users").then((response) => {
-      this.users = response.data.data;
+      this.users = response.data;
       this.loading = false;
     });
   },
