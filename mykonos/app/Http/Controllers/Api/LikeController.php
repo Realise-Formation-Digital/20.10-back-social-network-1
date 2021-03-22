@@ -34,7 +34,7 @@ class LikeController extends Controller
    * @param  \App\Like $like
    * @return \Illuminate\Http\Response
    */
-  public function show(Like $like)
+  public function show($like)
   {
     return new LikeResource(Like::findOrFail($like));
   }
