@@ -27,6 +27,8 @@ class User extends Authenticatable
     'address',
     'phone',
     'birth_date',
+    'created_at',
+    'updated_at',
   ];
 
   /**
@@ -36,8 +38,6 @@ class User extends Authenticatable
    */
   protected $hidden = [
     'password',
-    'created_at',
-    'updated_at',
     'remember_token',
     'email_verified_at',
     'pivot'
