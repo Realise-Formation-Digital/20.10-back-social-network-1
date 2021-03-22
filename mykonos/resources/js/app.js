@@ -19,7 +19,7 @@ Vue.filter("truncate", truncateFilter);
 Vue.filter("formatDate", function(value) {
     if (value) {
         return moment(String(value))
-            .locale("fr")
+            .locale(lang)
             .format("LL");
     }
 });

@@ -6,7 +6,11 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/loading.css') }}" rel="stylesheet">
+  <script>
+    var lang = '{{ str_replace('
+    _ ', ' - ', app()->getLocale()) }}'
 
+  </script>
   <title>{{ config('app.name') }}</title>
 </head>
 <body>
