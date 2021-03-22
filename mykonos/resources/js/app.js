@@ -1,6 +1,6 @@
 import Vue from "vue";
-import App from "./App.vue";
 import moment from "moment";
+import App from "./App.vue";
 import router from "./routes";
 import vuetify from "./plugins/vuetify";
 
@@ -14,15 +14,16 @@ var truncateFilter = function(text, length, clamp) {
     return content.length > length ? content.slice(0, length) + clamp : content;
 };
 
-Vue.filter("truncate", truncateFilter);
-
-Vue.filter("formatDate", function(value) {
+var dateFilter = function(value) {
     if (value) {
         return moment(String(value))
             .locale(lang)
             .format("LL");
     }
-});
+};
+
+Vue.filter("truncate", truncateFilter);
+Vue.filter("formatDate", dateFilter);
 
 const app = new Vue({
     el: "#app",
