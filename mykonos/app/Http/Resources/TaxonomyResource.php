@@ -16,8 +16,8 @@ class TaxonomyResource extends JsonResource
   {
     return [
       'id' => $this->id,
-      'label'=> $this->label,
-      'posts'=> PostResource::collection($this->posts),
+      'label' => $this->label,
+      'posts' => $this->posts,
     ];
     return parent::toArray($request);
   }

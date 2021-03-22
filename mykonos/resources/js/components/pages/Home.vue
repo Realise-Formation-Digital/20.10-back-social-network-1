@@ -1,26 +1,12 @@
-<template><v-app>
-<Header/>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est qui reprehenderit magnam sit ducimus dolorem molestiae nulla quasi. Sint quo labore porro atque accusantium nam at ea modi distinctio commodi.</p>
-<Footer/></v-app>
+<template>
+  <div>Bienvenue sur le site</div>
 </template>
 
-<style>
-
-</style>
-
-
 <script>
-import Header from "../layout/Header.vue";
-import Footer from "../layout/Footer.vue";
-
 export default {
-  name:  "Home",
-  components:{Header, Footer}
-
-  }
-
+  name: "Home",
+};
 </script>
 
 <style>
-
 </style>
