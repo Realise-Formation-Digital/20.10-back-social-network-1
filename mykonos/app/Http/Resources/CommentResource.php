@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Support\Str;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CommentResource extends JsonResource
@@ -20,8 +19,8 @@ class CommentResource extends JsonResource
       'text' => $this->text,
       'created_at' => $this->created_at->format('Y-m-d H:i:s'),
       'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
-      'user_id' => $this->user_id,
-      'post_id' => $this->post_id,
+      'user' => $this->user,
+      'post' => $this->post,
     ];
     return parent::toArray($request);
   }

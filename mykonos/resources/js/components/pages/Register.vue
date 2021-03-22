@@ -1,19 +1,12 @@
 <template>
-
+  <p>S'inscrire</p>
 </template>
 
-<style>
-
-</style>
-
-
 <script>
-
 export default {
-  name:  "Register",
-}
+  name: "Register",
+};
 </script>
 
 <style>
-
 </style>

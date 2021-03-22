@@ -22,7 +22,7 @@ class PostResource extends JsonResource
       'image' => Str::of($this->image)->after('public/assets/img\\'),
       'created_at' => $this->created_at->format('Y-m-d H:i:s'),
       'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
-      'user_id' => $this->user_id,
+      'user' => $this->user,
       'taxonomies' => $this->taxonomies,
       'comments' => CommentResource::collection($this->comments),
       'likes' => LikeResource::collection($this->likes),

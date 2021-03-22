@@ -13,22 +13,22 @@ class Comment extends Model
 
   protected $fillable = [
     'text',
-    'created_at',
-    'updated_at',
-    'user_id',
-    'post_id',
   ];
 
   protected $hidden = [
+    'user_id',
+    'post_id',
+    'created_at',
+    'updated_at',
     'pivot'
   ];
 
-  public function posts()
+  public function post()
   {
     return $this->belongsTo(Post::class);
   }
 
-  public function users()
+  public function user()
   {
     return $this->belongsTo(User::class);
   }

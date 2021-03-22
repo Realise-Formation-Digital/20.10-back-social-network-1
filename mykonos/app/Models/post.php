@@ -17,16 +17,16 @@ class Post extends Model
     'title',
     'text',
     'image',
-    'user_id',
-    'created_at',
-    'updated_at',
   ];
 
   protected $hidden = [
+    'user_id',
+    'created_at',
+    'updated_at',
     'pivot'
   ];
 
-  public function users()
+  public function user()
   {
     return $this->belongsTo(User::class);
   }

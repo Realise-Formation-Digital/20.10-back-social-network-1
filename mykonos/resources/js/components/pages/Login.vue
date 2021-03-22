@@ -1,19 +1,12 @@
 <template>
-
+  <p>Se connecter</p>
 </template>
 
-<style>
-
-</style>
-
-
 <script>
-
 export default {
-  name:  "Login",
-}
+  name: "Login",
+};
 </script>
 
 <style>
-
 </style>

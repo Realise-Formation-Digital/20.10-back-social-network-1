@@ -1,18 +1,32 @@
+import Vue from "vue";
+import App from "./App.vue";
+import moment from "moment";
+import router from "./routes";
+import vuetify from "./plugins/vuetify";
+
 require("./bootstrap");
 
-import Vue from "vue";
-import VueRouter from "vue-router";
-import routes from "./routes";
-import vuetify from "./plugins/vuetify"; // path to vuetify export
+var truncateFilter = function(text, length, clamp) {
+    clamp = clamp || "...";
+    var node = document.createElement("div");
+    node.innerHTML = text;
+    var content = node.textContent;
+    return content.length > length ? content.slice(0, length) + clamp : content;
+};
 
-import MenuIcon from 'vue-material-design-icons/Menu.vue';
- 
-Vue.component('menu-icon', MenuIcon);
+Vue.filter("truncate", truncateFilter);
 
-Vue.use(VueRouter);
+Vue.filter("formatDate", function(value) {
+    if (value) {
+        return moment(String(value))
+            .locale("fr")
+            .format("LL");
+    }
+});
 
-let app = new Vue({
-    vuetify,
+const app = new Vue({
     el: "#app",
-    router: new VueRouter(routes)
+    components: { App },
+    vuetify,
+    router
 });
