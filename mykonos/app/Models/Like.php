@@ -12,11 +12,10 @@ class Like extends Model
   use HasFactory;
 
   protected $fillable = [
-    'is_dislike'
+    'is_dislike',
   ];
 
   protected $hidden = [
-    'id',
     'created_at',
     'updated_at',
     'user_id',
@@ -24,12 +23,12 @@ class Like extends Model
     'pivot'
   ];
 
-  public function posts()
+  public function post()
   {
     return $this->belongsTo(Post::class);
   }
 
-  public function users()
+  public function user()
   {
     return $this->belongsTo(User::class);
   }

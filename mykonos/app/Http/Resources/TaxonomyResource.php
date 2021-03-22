@@ -14,6 +14,11 @@ class TaxonomyResource extends JsonResource
    */
   public function toArray($request)
   {
+    return [
+      'id' => $this->id,
+      'label' => $this->label,
+      'posts' => $this->posts,
+    ];
     return parent::toArray($request);
   }
 }

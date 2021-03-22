@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Taxonomy;
+use App\Http\Resources\TaxonomyResource;
+
 
 class TaxonomyController extends Controller
 {
@@ -15,7 +17,7 @@ class TaxonomyController extends Controller
    */
   public function index()
   {
-    return Taxonomy::all();
+    return TaxonomyResource::collection(Taxonomy::all());
   }
   /**
    * Store a newly created resource in storage.
@@ -33,9 +35,9 @@ class TaxonomyController extends Controller
    * @param  \App\Taxonomy $taxonomy
    * @return \Illuminate\Http\Response
    */
-  public function show(Taxonomy $taxonomy)
+  public function show($taxonomy)
   {
-    return $taxonomy;
+    return new TaxonomyResource(Taxonomy::findOrFail($taxonomy));
   }
   /**
    * Update the specified resource in storage.

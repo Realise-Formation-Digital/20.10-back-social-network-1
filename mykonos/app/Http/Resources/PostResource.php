@@ -22,10 +22,10 @@ class PostResource extends JsonResource
       'image' => Str::of($this->image)->after('public/assets/img\\'),
       'created_at' => $this->created_at->format('Y-m-d H:i:s'),
       'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
-      'user_id' => $this->user_id,
-      'taxonomies' => $this->taxonomies,
+      'user' => $this->user,
+      'taxonomies' => $this->taxonomies->sortBy('label'),
       'comments' => CommentResource::collection($this->comments),
-      'likes' => $this->likes,
+      'likes' => LikeResource::collection($this->likes),
     ];
     return parent::toArray($request);
   }
