@@ -11,12 +11,12 @@ class Taxonomy extends Model
   use HasFactory;
 
   protected $fillable = [
-    'label'
+    'label',
+    'created_at',
+    'updated_at',
   ];
 
   protected $hidden = [
-    'created_at',
-    'updated_at',
     'pivot'
   ];
 

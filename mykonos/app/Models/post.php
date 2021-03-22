@@ -17,12 +17,12 @@ class Post extends Model
     'title',
     'text',
     'image',
+    'created_at',
+    'updated_at',
   ];
 
   protected $hidden = [
     'user_id',
-    'created_at',
-    'updated_at',
     'pivot'
   ];
 

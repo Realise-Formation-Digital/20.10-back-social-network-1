@@ -13,13 +13,13 @@ class Comment extends Model
 
   protected $fillable = [
     'text',
+    'created_at',
+    'updated_at',
   ];
 
   protected $hidden = [
     'user_id',
     'post_id',
-    'created_at',
-    'updated_at',
     'pivot'
   ];
 

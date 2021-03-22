@@ -14,6 +14,13 @@ var truncateFilter = function(text, length, clamp) {
     return content.length > length ? content.slice(0, length) + clamp : content;
 };
 
+var subStringFilter = function(text, length) {
+    var node = document.createElement("div");
+    node.innerHTML = text;
+    var content = node.textContent;
+    return content.slice(length);
+};
+
 var dateFilter = function(value) {
     if (value) {
         return moment(String(value))
@@ -23,6 +30,7 @@ var dateFilter = function(value) {
 };
 
 Vue.filter("truncate", truncateFilter);
+Vue.filter("subStr", subStringFilter);
 Vue.filter("formatDate", dateFilter);
 
 const app = new Vue({
