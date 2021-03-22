@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ config('app.name') }}</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/loading.css') }}" rel="stylesheet">
   <script>
     var lang = '{{ str_replace('
-    _ ', ' - ', app()->getLocale()) }}'
+    _ ', ' - ', app()->getLocale()) }}';
 
   </script>
-  <title>{{ config('app.name') }}</title>
 </head>
 <body>
   <div id="app">
