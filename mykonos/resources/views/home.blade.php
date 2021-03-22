@@ -7,7 +7,7 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/loading.css') }}" rel="stylesheet">
 
-  <title>Laravel</title>
+  <title>{{ config('app.name') }}</title>
 </head>
 <body>
   <div id="app">
