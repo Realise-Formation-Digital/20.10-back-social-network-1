@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div :class="{ loading: loading }">
     <v-row dense>
       <v-col
-        v-for="taxonomy in taxonomies"
+        v-for="taxonomy in orderedList"
         :key="taxonomy.id"
         cols="12"
         sm="6"
@@ -40,12 +40,19 @@ export default {
   data() {
     return {
       taxonomies: null,
+      loading: true,
     };
   },
   mounted() {
     axios.get("/api/taxonomies").then((response) => {
       this.taxonomies = response.data;
+      this.loading = false;
     });
+  },
+  computed: {
+    orderedList: function () {
+      return _.orderBy(this.taxonomies, "label", "asc");
+    },
   },
 };
 </script>
