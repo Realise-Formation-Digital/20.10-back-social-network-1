@@ -41,7 +41,6 @@ export default new VueRouter({
             props: true
         },
 
-
         {
             path: "/taxonomies",
             component: Taxonomies
