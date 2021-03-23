@@ -64,7 +64,7 @@
                   color="pink"
                 >
                   <v-icon class="mr-2" dark small> mdi-heart </v-icon
-                  >{{ post.likes.length }}
+                  >{{ post.islikes.length }}
                 </v-chip>
                 <v-chip
                   class="mr-1"
@@ -76,7 +76,7 @@
                   color="brown"
                 >
                   <v-icon class="mr-2" dark small> mdi-heart-broken </v-icon
-                  >{{ post.likes.length }}
+                  >{{ post.dislikes.length }}
                 </v-chip>
               </v-col>
             </v-row>
@@ -119,10 +119,12 @@ export default {
     axios.get("/api/posts").then((response) => {
       this.posts = response.data.map((r) => {
         r.taxonomies = _.orderBy(r.taxonomies, "label");
-        r.likes = r.likes.filter(
-          (item) => item.is_dislike == 0
-        ); /* 
-        r.likes = r.likes.filter((item) => item.is_dislike == 1); */
+        r.islikes = r.likes.filter((item) => item.is_dislike === 0);
+        r.dislikes = r.likes.filter((item) => item.is_dislike === 1);
+        /* 
+        console.log("islikes", r.likes);
+        console.log("dislikes", r.dislikes);
+         */
         return r;
       });
       this.loading = false;
