@@ -17,7 +17,7 @@ class TaxonomyController extends Controller
    */
   public function index()
   {
-    return TaxonomyResource::collection(Taxonomy::all());
+    return Taxonomy::with('posts')->get();
   }
   /**
    * Store a newly created resource in storage.
@@ -37,7 +37,7 @@ class TaxonomyController extends Controller
    */
   public function show($taxonomy)
   {
-    return new TaxonomyResource(Taxonomy::findOrFail($taxonomy));
+    return Taxonomy::with('posts')->findOrFail($taxonomy);
   }
   /**
    * Update the specified resource in storage.
