@@ -122,7 +122,7 @@ export default {
         r.islikes = r.likes.filter((item) => item.is_dislike === 0);
         r.dislikes = r.likes.filter((item) => item.is_dislike === 1);
         /* 
-        console.log("islikes", r.likes);
+        console.log("likes", r.likes);
         console.log("dislikes", r.dislikes);
          */
         return r;
