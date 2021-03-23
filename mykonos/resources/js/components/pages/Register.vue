@@ -8,7 +8,7 @@
 							<div class="login-wrapper text-xs-center mb-3">
 								<div class="display-1 font-weight-black mb-3">Bon retour parmi nous!</div>	<span class="subheading">Pour rester connecté, merci de se connecter avec tes infos personnelles</span>
 							</div>
-							<v-btn round outline large dark ripple id="sign-in">Sign in</v-btn>
+							<v-btn round outline large dark ripple id="sign-in" href="/login">Sign in</v-btn>
 						</v-layout>
 					</v-flex>
 					<v-flex xs12 sm8 id="sign-up-form-wrapper" class="active">
@@ -17,19 +17,6 @@
 								<div class="login-wrapper text-xs-center">
 									<div class="display-1 font-weight-black">Créer un compte</div>
 								</div>
-							</v-flex>
-							<v-flex xs12 mb-3>
-								<v-btn outline fab small color="blue-grey lighten-4">
-									<v-icon color="grey darken-4">mdi-facebook</v-icon>
-								</v-btn>
-								<v-btn outline fab small color="blue-grey lighten-4">
-									<v-icon color="grey darken-4">mdi-google-plus</v-icon>
-								</v-btn>
-								<v-btn outline fab small color="blue-grey lighten-4">
-									<v-icon color="grey darken-4">mdi-linkedin</v-icon>
-								</v-btn>
-							</v-flex>
-							<v-flex xs12 mb-2>	<span class="grey--text text--lighten-1">tu peux utiliser ton e-mail pour l'enregistrement</span>
 							</v-flex>
 							<v-flex xs12 class="form-wrapper">
 								<v-text-field box full-width single-line label="Nom" background-color="#f4f8f7" color="grey darken-2" prepend-inner-icon="mdi-account-outline" mb-0></v-text-field>
@@ -54,7 +41,14 @@
 <script>
 export default {
   name: "Register",
-};
+
+ data: ()=> ({
+        show1: false,
+        show: false,
+        password: 'Password'
+  })
+
+}
 </script>
 
 <style>
