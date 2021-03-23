@@ -16,7 +16,7 @@ class CommentController extends Controller
    */
   public function index()
   {
-    return CommentResource::collection(Comment::all());
+    return Comment::with('user')->with('post')->get();
   }
   /**
    * Store a newly created resource in storage.
@@ -34,9 +34,9 @@ class CommentController extends Controller
    * @param  \App\Comment $comment
    * @return \Illuminate\Http\Response
    */
-  public function show(Comment $comment)
+  public function show($comment)
   {
-    return new CommentResource(Comment::findOrFail($comment));
+    return Comment::with('user')->with('post')->findOrFail($comment);
   }
   /**
    * Update the specified resource in storage.

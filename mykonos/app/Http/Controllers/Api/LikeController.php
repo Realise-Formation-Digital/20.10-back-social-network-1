@@ -16,7 +16,7 @@ class LikeController extends Controller
    */
   public function index()
   {
-    return LikeResource::collection(Like::all());
+    return Like::with('user')->with('post')->get();
   }
   /**
    * Store a newly created resource in storage.
@@ -36,7 +36,7 @@ class LikeController extends Controller
    */
   public function show($like)
   {
-    return new LikeResource(Like::findOrFail($like));
+    return Like::with('user')->with('post')->findOrFail($like);
   }
   /**
    * Update the specified resource in storage.
