@@ -1852,6 +1852,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -19975,9 +19989,34 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-card",
-    { attrs: { elevation: "3", shaped: "" } },
-    [_c("v-btn", [_vm._v("test button")])],
+    "div",
+    [
+      _c(
+        "v-toolbar",
+        {
+          attrs: {
+            dark: "",
+            prominent: "",
+            src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+          }
+        },
+        [
+          _c("v-app-bar-nav-icon"),
+          _vm._v(" "),
+          _c("v-toolbar-title", [_vm._v("Vuetify")]),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            { attrs: { icon: "" } },
+            [_c("v-icon", [_vm._v("mdi-export")])],
+            1
+          )
+        ],
+        1
+      )
+    ],
     1
   )
 }
