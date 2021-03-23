@@ -20,8 +20,8 @@
             ></v-text-field>
             <v-text-field
               v-model="password"
-              :append-icon="show1 ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
-              :type="show1 ? 'text' : 'password'"
+              :append-icon="show ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
+              :type="show ? 'text' : 'password'"
               filled
               full-width
               single-line
@@ -29,17 +29,10 @@
               background-color="#f4f8f7"
               color="grey darken-2"
               prepend-inner-icon="mdi-lock-outline"
-              @click:append="show1 = !show1"
+              @click:append="show = !show"
             ></v-text-field>
           </v-flex>
-          <v-btn
-            rounded
-            large
-            dark
-            ripple
-            color="indigo"
-            id="sign-up"
-            @click="show = !show"
+          <v-btn rounded large dark ripple color="indigo" id="sign-up"
             >ok</v-btn
           >
         </v-layout>
@@ -54,7 +47,6 @@ export default {
   name: "Login",
 
   data: () => ({
-    show1: false,
     show: false,
     password: "",
   }),
