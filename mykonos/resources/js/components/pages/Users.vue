@@ -12,7 +12,7 @@
       >
         <v-card>
           <v-img
-            :src="'assets/img/' + user.avatar"
+            :src="user.avatar | subStr(7)"
             class="white--text align-end"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="200px"
@@ -24,16 +24,14 @@
               <v-col class="col-auto mr-auto">
                 <span>
                   Nom:
-                  <a
-                    class="success--text userLink"
-                    :href="'/users/' + user.id"
+                  <a class="success--text userLink" :href="'/users/' + user.id"
                     >{{ user.firstname }} {{ user.name }}</a
                   >
                 </span>
                 <v-spacer></v-spacer>
                 <span> Email: {{ user.email }} </span>
                 <v-spacer></v-spacer>
-                <span> Tel: {{ user.phone}} </span>
+                <span> Tel: {{ user.phone }} </span>
                 <v-spacer></v-spacer>
                 <span> Adresse: {{ user.address }} </span>
               </v-col>
@@ -62,7 +60,7 @@
                   <v-icon class="mr-2" dark small> mdi-heart </v-icon
                   >{{ user.likes.length }}
                 </v-chip>
-                 <v-chip
+                <v-chip
                   class="mr-1"
                   elevation="0"
                   fab
