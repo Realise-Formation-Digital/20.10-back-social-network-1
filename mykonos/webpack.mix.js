@@ -13,8 +13,9 @@ require("vuetifyjs-mix-extension");
  */
 
 mix.js("resources/js/app.js", "public/js")
-    .vuetify()
     .postCss("resources/css/app.css", "public/css", [
         //
     ])
-    .vue();
+    .vue()
+    .vuetify()
+    .disableNotifications();

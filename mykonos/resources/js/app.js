@@ -1,14 +1,41 @@
+import Vue from "vue";
+import moment from "moment";
+import App from "./App.vue";
+import router from "./routes";
+import vuetify from "./plugins/vuetify";
+
 require("./bootstrap");
 
-import Vue from "vue";
-import VueRouter from "vue-router";
-import routes from "./routes";
-import vuetify from "./plugins/vuetify"; // path to vuetify export
+var truncateFilter = function(text, length, clamp) {
+    clamp = clamp || "...";
+    var node = document.createElement("div");
+    node.innerHTML = text;
+    var content = node.textContent;
+    return content.length > length ? content.slice(0, length) + clamp : content;
+};
 
-Vue.use(VueRouter);
+var subStringFilter = function(text, length) {
+    var node = document.createElement("div");
+    node.innerHTML = text;
+    var content = node.textContent;
+    return content.slice(length);
+};
 
-let app = new Vue({
-    vuetify,
+var dateFilter = function(value) {
+    if (value) {
+        return moment(String(value))
+            .locale(lang)
+            .format("LL");
+    }
+};
+
+Vue.filter("truncate", truncateFilter);
+Vue.filter("subStr", subStringFilter);
+Vue.filter("formatDate", dateFilter);
+
+const app = new Vue({
     el: "#app",
-    router: new VueRouter(routes)
+    components: { App },
+    vuetify,
+    router
 });

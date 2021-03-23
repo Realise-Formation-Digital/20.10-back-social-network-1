@@ -2,10 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class taxonomy extends Model
+class Taxonomy extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = [
+    'label',
+    'created_at',
+    'updated_at',
+  ];
+
+  protected $hidden = [
+    'pivot'
+  ];
+
+  public function posts()
+  {
+    return $this->belongsToMany(Post::class);
+  }
 }
