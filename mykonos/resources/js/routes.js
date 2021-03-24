@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "./components/pages/Home.vue";
+import Sidebar from "./components/pages/Sidebar.vue";
 import Users from "./components/pages/Users.vue";
 import User from "./components/pages/User.vue";
 import Posts from "./components/pages/Posts.vue";
@@ -17,8 +18,8 @@ export default new VueRouter({
     routes: [
         {
             path: "/",
-            component: Home
-        },
+            component: Home,Sidebar
+        },       
 
         {
             path: "/posts",
