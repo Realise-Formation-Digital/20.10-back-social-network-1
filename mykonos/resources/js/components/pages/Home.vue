@@ -6,7 +6,7 @@
 
       <v-main>
         <v-container>
-            
+          <app-posts></app-posts>
         </v-container>
       </v-main>
   </div>
