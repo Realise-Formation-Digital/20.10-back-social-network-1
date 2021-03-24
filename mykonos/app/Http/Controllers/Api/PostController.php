@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Post;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
-use Illuminate\Http\Request;
-use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -36,7 +36,7 @@ class PostController extends Controller
    */
   public function show($post)
   {
-    return Post::with('user')->with('taxonomies')->with('comments')->with('likes')->findOrFail($post);
+    return new PostResource(Post::findOrFail($post));
   }
   /**
    * Update the specified resource in storage.

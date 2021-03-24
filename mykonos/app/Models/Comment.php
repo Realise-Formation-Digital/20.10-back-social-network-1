@@ -15,10 +15,10 @@ class Comment extends Model
     'text',
     'created_at',
     'updated_at',
+    'user_id',
   ];
 
   protected $hidden = [
-    'user_id',
     'post_id',
     'pivot'
   ];

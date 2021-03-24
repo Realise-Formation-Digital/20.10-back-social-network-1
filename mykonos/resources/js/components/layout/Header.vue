@@ -9,7 +9,6 @@
       <v-tab key="2" to="/taxonomies">
         <v-icon left>mdi-bookshelf</v-icon>Catégories</v-tab
       >
-      <v-tab key="3" to="/likes"> <v-icon left>mdi-heart</v-icon>Likes</v-tab>
       <v-tab key="4" to="/users">
         <v-icon left>mdi-account-multiple</v-icon>Utilisateurs</v-tab
       >
