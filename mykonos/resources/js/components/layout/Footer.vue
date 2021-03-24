@@ -1,32 +1,45 @@
 <template>
-  <v-bottom-navigation
-    horizontal
-    app
-    background-color="indigo lighten-3"
-    dark
-    color="indigo darken-2"
+  <v-footer
+    color="indigo lighten-3"
+    padless
   >
-    <v-btn text>
-      <span>Recents</span>
-      <v-icon>mdi-history</v-icon>
-    </v-btn>
-    <v-btn text>
-      <span>Favorites</span>
-      <v-icon>mdi-heart</v-icon>
-    </v-btn>
-    <v-btn text>
-      <span>Nearby</span>
-
-      <v-icon>mdi-map-marker</v-icon>
-    </v-btn>
-  </v-bottom-navigation>
+    <v-row
+      justify="center"
+      no-gutters
+    >
+      <v-btn
+        v-for="link in links"
+        :key="link"
+        color="white"
+        text
+        rounded
+        class="my-2"
+      >
+        {{ link }}
+      </v-btn>
+      <v-col
+        class="indigo lighten-2 py-4 text-center white--text"
+        cols="12"
+      >
+        {{ new Date().getFullYear() }} — <strong>Social-Network</strong>
+      </v-col>
+    </v-row>
+  </v-footer>
 </template>
 
 <script>
-export default {
-  name: "Footer",
-};
+  export default {
+    data: () => ({
+      links: [
+        'À propos',
+        'Team',
+        'Service',
+        'Contacter nous',
+      ],
+    }),
+  }
 </script>
 
 <style>
 </style>
+
