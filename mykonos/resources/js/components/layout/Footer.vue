@@ -6,19 +6,7 @@
     dark
     color="indigo darken-2"
   >
-    <v-btn text>
-      <span>Recents</span>
-      <v-icon>mdi-history</v-icon>
-    </v-btn>
-    <v-btn text>
-      <span>Favorites</span>
-      <v-icon>mdi-heart</v-icon>
-    </v-btn>
-    <v-btn text>
-      <span>Nearby</span>
-
-      <v-icon>mdi-map-marker</v-icon>
-    </v-btn>
+    <span class="white--text mt-4">Mykonos - 2021</span>
   </v-bottom-navigation>
 </template>
 
