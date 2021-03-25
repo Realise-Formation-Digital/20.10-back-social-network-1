@@ -18,7 +18,7 @@
             height="200px"
           >
             <v-card-title>
-              {{ post.title | truncate(24, "...") }}
+              {{ post.title | truncate(20, "...") }}
             </v-card-title>
           </v-img>
           <v-card-actions class="justify-center"

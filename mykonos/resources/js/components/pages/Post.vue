@@ -10,7 +10,7 @@
             height="200px"
           >
             <v-card-title>
-              {{ post.title | truncate(24, "...") }}
+              {{ post.title }}
             </v-card-title>
           </v-img>
           <v-divider></v-divider>
