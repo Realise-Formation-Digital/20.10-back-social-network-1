@@ -1,31 +1,24 @@
 <template>
-  <v-container fluid pa-0>
-    <v-layout row wrap>
-      <v-flex xs12 sm12 id="sign-up-form-wrapper" class="active">
-        <v-layout column align-center justify-center pa-3 mt-5>
-          <v-flex xs12 mb-3 mt-5>
-            <div class="login-wrapper text-xs-center">
-              <div class="display-1 font-weight-black mb-3">
-                Bon retour parmi nous!
-              </div>
-              <v-layout column align-center justify-center pa-3 mt-5>
-                <v-btn class="mt-4 white--text indigo" rounded large to="/login"
-                  >Connexion</v-btn
-                >
-              </v-layout>
-            </div>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <div>
+    <v-row
+      ><v-col cols="0" lg="3"> <app-sidebar></app-sidebar></v-col
+      ><v-col cols="12" lg="9"> <app-posts></app-posts></v-col
+    ></v-row>
+  </div>
 </template>
 
 <script>
+//import your components here
+import Sidebar from "./Sidebar.vue";
+import Posts from "./Posts.vue";
+
 export default {
-  name: "Home",
+  components: {
+    "app-sidebar": Sidebar,
+    "app-posts": Posts,
+  },
 };
 </script>
-
+  
 <style>
 </style>
