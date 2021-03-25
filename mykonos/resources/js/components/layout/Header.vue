@@ -6,6 +6,9 @@
       <v-tab key="1" to="/posts">
         <v-icon left>mdi-book-open-page-variant</v-icon>Articles</v-tab
       >
+      <v-tab key="2" to="/taxonomies">
+        <v-icon left>mdi-bookshelf</v-icon>Catégories</v-tab
+      >
       <v-tab key="4" to="/users">
         <v-icon left>mdi-account-multiple</v-icon>Utilisateurs</v-tab
       >
